@@ -1,0 +1,35 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const title = 'Обо мне';
+const description = 'Daria Ray — growth-маркетолог с опытом перестройки маркетинга для бизнеса в нестабильной экономике.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-3xl px-4 pt-16 pb-16">
+    <h1 class="text-4xl font-extrabold tracking-tight mb-6">Daria Ray</h1>
+    <p class="text-lg text-slate-600 mb-6">
+      Я growth-маркетолог с опытом построения систем роста для digital- и
+      mobile-продуктов: acquisition → activation → retention → monetization.
+      Последние годы фокусируюсь на антикризисной перестройке маркетинга —
+      когда привычные каналы дорожают или перестают работать, а бизнесу нужно
+      не потерять продажи здесь и сейчас.
+    </p>
+    <ul class="space-y-2 text-slate-700 mb-8">
+      <li>— 8+ лет в growth-маркетинге</li>
+      <li>— Запуски и рост в 5+ странах</li>
+      <li>— Проекты с ростом выручки до 4× на нестабильном рынке</li>
+      <li>— Опыт работы с малым, средним и B2B-бизнесом</li>
+    </ul>
+    <p class="text-slate-600">
+      Работаю проектно и на подписке, удалённо. Подробнее о форматах работы —
+      на странице <a href="/anti-crisis-marketing/services/" class="text-amber-600 font-semibold">услуг</a>.
+    </p>
+  </section>
+
+  <CTASection
+    title="Расскажите о своей ситуации"
+    description="Отвечу, какой формат работы подойдёт вам лучше всего."
+  />
+</BaseLayout>

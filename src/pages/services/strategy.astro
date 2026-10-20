@@ -1,0 +1,44 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const title = 'Антикризисная стратегия маркетинга';
+const description =
+  'План на 1-3 месяца: что сократить, что усилить и как перестроить воронку и бюджет, чтобы продажи не упали вместе с рынком.';
+---
+
+<BaseLayout title={title} description={description} type="article">
+  <section class="mx-auto max-w-3xl px-4 pt-16 pb-10">
+    <p class="text-amber-600 font-semibold mb-3">Шаг 2 · проектная работа</p>
+    <h1 class="text-4xl font-extrabold tracking-tight mb-5">Антикризисная стратегия</h1>
+    <p class="text-lg text-slate-600">
+      Аудит показывает, что болит. Стратегия — что делать дальше: конкретный план
+      на 1-3 месяца с приоритетами, сроками и ответом на вопрос "откуда возьмутся заявки,
+      если старый канал подорожал или исчез".
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-10">
+    <h2 class="text-2xl font-bold mb-4">Что входит</h2>
+    <ul class="space-y-3 text-slate-700">
+      <li>— Пересборка воронки под текущий спрос и бюджет</li>
+      <li>— План диверсификации каналов, если бизнес держится на одном источнике лидов</li>
+      <li>— Приоритизация: что сократить без потери продаж, что усилить для быстрого результата</li>
+      <li>— Антикризисные гипотезы роста с оценкой сроков и ресурсов на внедрение</li>
+      <li>— Метрики и контрольные точки, по которым видно, работает план или нет</li>
+    </ul>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-10">
+    <h2 class="text-2xl font-bold mb-4">Кому подходит</h2>
+    <p class="text-slate-700">
+      Бизнесу, у которого уже есть диагноз (свой или по итогам аудита) и который готов
+      действовать: нужен конкретный план, а не общие рекомендации "улучшить SEO и таргет".
+    </p>
+  </section>
+
+  <CTASection
+    title="Нужен план, а не набор советов?"
+    description="Оставьте заявку — обсудим ситуацию и сроки разработки стратегии."
+  />
+</BaseLayout>

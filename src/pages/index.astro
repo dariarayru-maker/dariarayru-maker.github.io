@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import CaseCard from '../components/CaseCard.astro';
+import CTASection from '../components/CTASection.astro';
+
+const base = import.meta.env.BASE_URL;
+
+const title = 'Антикризисный маркетинг для бизнеса в РФ — Daria Ray';
+const description =
+  'Аудит, антикризисная стратегия и ведение маркетинга на подписке для малого, среднего и B2B-бизнеса: сохраняем продажи и защищаем бюджет, когда спрос падает, а стоимость лида растёт.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-6xl px-4 pt-16 pb-12 grid lg:grid-cols-2 gap-10 items-center">
+    <div>
+      <p class="text-amber-600 font-semibold mb-3">Антикризисный маркетинг · РФ</p>
+      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-5">
+        Маркетинг не падает вместе с рынком
+      </h1>
+      <p class="text-lg text-slate-600 mb-8">
+        Помогаю малому, среднему и B2B-бизнесу перестроить маркетинг, когда спрос падает,
+        цена лида растёт или рекламный бюджет режут: находим, что в воронке держит продажи,
+        и что в кризис стало балластом.
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a
+          href={`${base}services/audit/`}
+          class="rounded-full bg-slate-900 text-white font-semibold px-6 py-3 hover:bg-amber-600 transition-colors"
+        >
+          Заказать антикризисный аудит
+        </a>
+        <a
+          href={`${base}services/`}
+          class="rounded-full border border-slate-300 font-semibold px-6 py-3 hover:border-slate-900 transition-colors"
+        >
+          Все услуги
+        </a>
+      </div>
+      <p class="text-sm text-slate-500 mt-4">
+        8+ лет в growth-маркетинге · проекты в 5+ странах · рост выручки до 4× на падающем рынке
+      </p>
+    </div>
+
+    <div class="rounded-3xl bg-slate-900 text-white p-8">
+      <p class="font-semibold text-amber-400 mb-4">Когда обращаются за антикризисным маркетингом</p>
+      <ul class="space-y-3 text-slate-200">
+        <li>— Продажи упали, а почему — непонятно</li>
+        <li>— Реклама дорожает, бюджет урезали, а план не снизили</li>
+        <li>— Площадка/канал продвижения заблокирован или подорожал в разы</li>
+        <li>— Нужно за 1–3 месяца показать руководству рост или экономию</li>
+        <li>— Нет своего маркетолога, но без заявок бизнес не выживет</li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-12">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-2">Три шага от диагноза до результата</h2>
+    <p class="text-slate-600 mb-8 max-w-2xl">
+      Начинаем с аудита — без него антикризисные решения превращаются в угадайку.
+    </p>
+    <div class="grid sm:grid-cols-3 gap-6">
+      <ServiceCard
+        href={`${base}services/audit/`}
+        step="Шаг 1"
+        title="Антикризисный аудит маркетинга"
+        description="Разбираем воронку, каналы и юнит-экономику: что держит продажи и что уже не работает."
+        price="от 1-2 недель"
+      />
+      <ServiceCard
+        href={`${base}services/strategy/`}
+        step="Шаг 2"
+        title="Антикризисная стратегия"
+        description="План на 1-3 месяца: что сократить, что усилить, как защитить маржу и заявки."
+        price="проектно, 2-4 недели"
+      />
+      <ServiceCard
+        href={`${base}services/retainer/`}
+        step="Шаг 3"
+        title="Ведение маркетинга на подписке"
+        description="Внедряю стратегию и веду маркетинг каждый месяц: метрики, гипотезы, отчётность."
+        price="ежемесячная подписка"
+      />
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-12">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-2">Для кого</h2>
+    <div class="grid sm:grid-cols-2 gap-6 mt-6">
+      <a href={`${base}services/smb/`} class="rounded-2xl border border-slate-200 p-6 hover:border-amber-500 transition-colors bg-white">
+        <h3 class="text-xl font-bold mb-2">Малый и средний бизнес</h3>
+        <p class="text-slate-600">
+          Локальный бизнес, услуги, розница — когда нет штатного маркетолога и бюджета на агентство,
+          а заявки нужны уже сейчас.
+        </p>
+      </a>
+      <a href={`${base}services/b2b/`} class="rounded-2xl border border-slate-200 p-6 hover:border-amber-500 transition-colors bg-white">
+        <h3 class="text-xl font-bold mb-2">B2B и средний бизнес</h3>
+        <p class="text-slate-600">
+          Длинный цикл сделки, маркетинг-директор должен обосновать бюджет перед руководством
+          и снизить стоимость заявки.
+        </p>
+      </a>
+    </div>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 py-12">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-6">Результаты на падающем и нестабильном рынке</h2>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      <CaseCard
+        segment="smb"
+        title="Эксперт на образовательном рынке"
+        before="250 тыс ₽/мес"
+        after="5,3 млн ₽/мес"
+        description="Маркетинговая стратегия и перестройка воронки для эксперта без штатной команды."
+      />
+      <CaseCard
+        segment="b2b"
+        title="B2B-продвижение услуг"
+        before="CPL высокий"
+        after="выручка ×4"
+        description="Снижение стоимости заявки до 300 ₽ при росте выручки в 4 раза."
+      />
+      <CaseCard
+        segment="smb"
+        title="Онлайн-школа профессий"
+        before="5 млн ₽/мес"
+        after="15 млн ₽/мес"
+        description="Рост выручки в 3 раза за счёт пересборки каналов привлечения."
+      />
+      <CaseCard
+        segment="smb"
+        title="Запуск без рекламного бюджета"
+        before="0 ₽"
+        after="400 тыс ₽/мес"
+        description="Онлайн-продукт вышел на выручку без платного трафика — органика и партнёрства."
+      />
+    </div>
+    <a href={`${base}cases/`} class="inline-block mt-6 font-semibold text-amber-600 hover:text-amber-700">
+      Смотреть все кейсы →
+    </a>
+  </section>
+
+  <CTASection
+    title="Не знаете, с чего начать антикризисную перестройку?"
+    description="Начните с бесплатной 20-минутной диагностики — отвечу, в чём именно у вас сейчас проблема и какой шаг имеет смысл первым."
+    ctaLabel="Записаться на диагностику"
+  />
+</BaseLayout>

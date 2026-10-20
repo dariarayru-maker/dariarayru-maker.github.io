@@ -1,0 +1,33 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const title = 'Контакты';
+const description = 'Оставьте заявку на антикризисный аудит маркетинга — отвечу в Telegram в течение рабочего дня.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-3xl px-4 pt-16 pb-16">
+    <h1 class="text-4xl font-extrabold tracking-tight mb-6">Контакты</h1>
+    <p class="text-lg text-slate-600 mb-8">
+      Быстрее всего — написать в Telegram. Коротко опишите бизнес, что произошло
+      с продажами/бюджетом и какой формат интересен (аудит, стратегия, ведение на подписке).
+    </p>
+
+    <a
+      href="https://t.me/jobsaccountdi"
+      target="_blank"
+      rel="noopener"
+      class="inline-block rounded-full bg-slate-900 text-white font-semibold px-6 py-3 hover:bg-amber-600 transition-colors mb-10"
+    >
+      Написать в Telegram →
+    </a>
+
+    <h2 class="text-xl font-bold mb-3">Что полезно указать сразу</h2>
+    <ul class="space-y-2 text-slate-700">
+      <li>— Сфера бизнеса и примерный масштаб (малый/средний бизнес или B2B)</li>
+      <li>— Что произошло: упали продажи, выросла цена лида, режут бюджет, другое</li>
+      <li>— Какой формат интересен: аудит, стратегия или ведение на подписке</li>
+      <li>— Сроки, если они критичны</li>
+    </ul>
+  </section>
+</BaseLayout>

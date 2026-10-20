@@ -1,0 +1,23 @@
+---
+interface Props {
+  segment: 'smb' | 'b2b';
+  title: string;
+  before: string;
+  after: string;
+  description: string;
+}
+
+const { segment, title, before, after, description } = Astro.props;
+const segmentLabel = segment === 'smb' ? 'Малый/средний бизнес' : 'B2B';
+---
+
+<article class="rounded-2xl border border-slate-200 p-6 bg-white">
+  <span class="text-xs font-semibold uppercase tracking-wide text-amber-600">{segmentLabel}</span>
+  <h3 class="text-lg font-bold mt-2 mb-2">{title}</h3>
+  <div class="flex items-center gap-3 mb-3 text-sm">
+    <span class="rounded-full bg-slate-100 px-3 py-1 text-slate-600">{before}</span>
+    <span aria-hidden="true">→</span>
+    <span class="rounded-full bg-amber-100 px-3 py-1 text-amber-700 font-semibold">{after}</span>
+  </div>
+  <p class="text-slate-600 text-sm">{description}</p>
+</article>

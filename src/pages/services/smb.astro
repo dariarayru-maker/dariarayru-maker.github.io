@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const base = import.meta.env.BASE_URL;
+const title = 'Антикризисный маркетинг для малого и среднего бизнеса';
+const description =
+  'Антикризисный маркетинг для малого и среднего бизнеса без штатного маркетолога: дешёвые каналы привлечения, защита от блокировки одного источника заявок, быстрый результат при ограниченном бюджете.';
+---
+
+<BaseLayout title={title} description={description} type="article">
+  <section class="mx-auto max-w-3xl px-4 pt-16 pb-10">
+    <p class="text-amber-600 font-semibold mb-3">Для малого и среднего бизнеса</p>
+    <h1 class="text-4xl font-extrabold tracking-tight mb-5">
+      Когда нет штатного маркетолога, а заявки нужны сейчас
+    </h1>
+    <p class="text-lg text-slate-600">
+      Локальный бизнес, услуги, розница — типичная ситуация: один канал привлечения
+      (например, один рекламный кабинет или площадка) резко дорожает или блокируется,
+      и продажи падают, а разбираться некому. Я закрываю маркетинг целиком: от диагноза
+      до ведения, пока у вас не появится свой ресурс.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-10">
+    <h2 class="text-2xl font-bold mb-4">Что именно решаем</h2>
+    <ul class="space-y-3 text-slate-700">
+      <li>— Продажи упали, а бюджета на пробы и ошибки больше нет</li>
+      <li>— Весь поток заявок держится на одном канале, который стал нестабильным</li>
+      <li>— Нужно показать результат за 1-3 месяца, а не через полгода</li>
+      <li>— Хочется понятной отчётности и прозрачности, а не "маркетингового языка"</li>
+    </ul>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-16">
+    <h2 class="text-2xl font-bold mb-4">С чего начать</h2>
+    <p class="text-slate-700 mb-6">
+      Для малого и среднего бизнеса обычно начинаем с
+      <a href={`${base}services/audit/`} class="text-amber-600 font-semibold">антикризисного аудита</a> —
+      он занимает 1-2 недели и сразу показывает, куда уходит бюджет впустую.
+      Дальше — либо
+      <a href={`${base}services/strategy/`} class="text-amber-600 font-semibold">антикризисная стратегия</a>,
+      если готовы внедрять сами, либо
+      <a href={`${base}services/retainer/`} class="text-amber-600 font-semibold">ведение на подписке</a>,
+      если нужна постоянная рука на пульсе.
+    </p>
+  </section>
+
+  <CTASection
+    title="Разберёмся, почему упали продажи"
+    description="Оставьте заявку на аудит — в первую очередь смотрю, можно ли исправить ситуацию без увеличения бюджета."
+  />
+</BaseLayout>

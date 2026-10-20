@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ServiceCard from '../../components/ServiceCard.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const base = import.meta.env.BASE_URL;
+const title = 'Услуги антикризисного маркетинга';
+const description =
+  'Антикризисный аудит маркетинга, антикризисная стратегия и ведение маркетинга на подписке для малого, среднего и B2B-бизнеса в РФ.';
+---
+
+<BaseLayout title={title} description={description}>
+  <section class="mx-auto max-w-6xl px-4 pt-16 pb-10">
+    <h1 class="text-4xl font-extrabold tracking-tight mb-4">Услуги</h1>
+    <p class="text-lg text-slate-600 max-w-2xl">
+      Три формата работы — выбирайте по тому, сколько у вас времени и готова ли команда
+      внедрять решения самостоятельно.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-16 grid sm:grid-cols-3 gap-6">
+    <ServiceCard
+      href={`${base}services/audit/`}
+      step="Разово"
+      title="Антикризисный аудит маркетинга"
+      description="Диагностика воронки, каналов и экономики. Результат — список проблем и точек роста с приоритетами."
+      price="от 1-2 недель"
+    />
+    <ServiceCard
+      href={`${base}services/strategy/`}
+      step="Проектно"
+      title="Антикризисная стратегия"
+      description="План действий на 1-3 месяца: что сократить, что усилить, как перестроить воронку и бюджет."
+      price="2-4 недели"
+    />
+    <ServiceCard
+      href={`${base}services/retainer/`}
+      step="На подписке"
+      title="Ведение маркетинга"
+      description="Беру маркетинг на себя: внедряю стратегию, тестирую гипотезы, отчитываюсь по метрикам каждый месяц."
+      price="ежемесячно"
+    />
+  </section>
+
+  <section class="mx-auto max-w-6xl px-4 pb-16">
+    <h2 class="text-2xl font-bold mb-6">Под какой бизнес подхожу</h2>
+    <div class="grid sm:grid-cols-2 gap-6">
+      <a href={`${base}services/smb/`} class="rounded-2xl border border-slate-200 p-6 hover:border-amber-500 transition-colors bg-white">
+        <h3 class="text-xl font-bold mb-2">Малый и средний бизнес →</h3>
+        <p class="text-slate-600">Офлайн-бизнес, услуги, розница без штатного маркетолога.</p>
+      </a>
+      <a href={`${base}services/b2b/`} class="rounded-2xl border border-slate-200 p-6 hover:border-amber-500 transition-colors bg-white">
+        <h3 class="text-xl font-bold mb-2">B2B и средний бизнес →</h3>
+        <p class="text-slate-600">Длинный цикл сделки, нужно обосновать бюджет перед руководством.</p>
+      </a>
+    </div>
+  </section>
+
+  <CTASection
+    title="Сомневаетесь, какой формат нужен?"
+    description="Расскажите о ситуации — предложу формат, с которого стоит начать именно вам."
+  />
+</BaseLayout>

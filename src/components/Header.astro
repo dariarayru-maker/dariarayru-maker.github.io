@@ -1,0 +1,42 @@
+---
+const base = import.meta.env.BASE_URL;
+
+const nav = [
+  { href: `${base}`, label: 'Главная' },
+  { href: `${base}services/`, label: 'Услуги' },
+  { href: `${base}services/smb/`, label: 'Малому и среднему бизнесу' },
+  { href: `${base}services/b2b/`, label: 'B2B' },
+  { href: `${base}blog/`, label: 'Блог' },
+  { href: `${base}cases/`, label: 'Кейсы' },
+  { href: `${base}about/`, label: 'Обо мне' },
+];
+---
+
+<header class="border-b border-slate-200 sticky top-0 bg-white/95 backdrop-blur z-50">
+  <div class="mx-auto max-w-6xl px-4 flex items-center justify-between h-16">
+    <a href={base} class="font-bold text-lg tracking-tight">
+      Daria Ray <span class="text-amber-600">| Антикризисный маркетинг</span>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-6 text-sm font-medium">
+      {nav.slice(1).map((item) => (
+        <a href={item.href} class="text-slate-600 hover:text-slate-900 transition-colors">
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <a
+      href={`${base}contacts/`}
+      class="rounded-full bg-slate-900 text-white text-sm font-semibold px-4 py-2 hover:bg-amber-600 transition-colors"
+    >
+      Заявка на аудит
+    </a>
+  </div>
+
+  <nav class="lg:hidden flex gap-4 overflow-x-auto px-4 pb-3 text-sm font-medium whitespace-nowrap">
+    {nav.slice(1).map((item) => (
+      <a href={item.href} class="text-slate-600 hover:text-slate-900">{item.label}</a>
+    ))}
+  </nav>
+</header>

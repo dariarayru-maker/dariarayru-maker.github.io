@@ -1,0 +1,50 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+
+const base = import.meta.env.BASE_URL;
+const title = 'Антикризисный маркетинг для B2B и среднего бизнеса';
+const description =
+  'Антикризисный маркетинг для B2B: снижение CAC и стоимости заявки, защита маркетингового бюджета перед руководством, работа с длинным циклом сделки в нестабильной экономике.';
+---
+
+<BaseLayout title={title} description={description} type="article">
+  <section class="mx-auto max-w-3xl px-4 pt-16 pb-10">
+    <p class="text-amber-600 font-semibold mb-3">Для B2B и среднего бизнеса</p>
+    <h1 class="text-4xl font-extrabold tracking-tight mb-5">
+      Когда нужно обосновать маркетинговый бюджет перед руководством
+    </h1>
+    <p class="text-lg text-slate-600">
+      В B2B кризис бьёт не сразу — сначала растёт цикл сделки, потом руководство
+      начинает резать маркетинговый бюджет, не видя прямой связи с продажами. Моя
+      задача — перестроить маркетинг так, чтобы CAC и стоимость заявки были под
+      контролем, а вклад маркетинга в выручку было видно в цифрах.
+    </p>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-10">
+    <h2 class="text-2xl font-bold mb-4">Что именно решаем</h2>
+    <ul class="space-y-3 text-slate-700">
+      <li>— Цикл сделки вырос, а план по лидам остался прежним</li>
+      <li>— Руководство требует сократить бюджет, не понимая, что отвалится вместе с ним</li>
+      <li>— CAC растёт, а атрибуция по каналам не прозрачна</li>
+      <li>— Нужна отчётность, понятная не маркетологу, а собственнику или CEO</li>
+    </ul>
+  </section>
+
+  <section class="mx-auto max-w-3xl px-4 pb-16">
+    <h2 class="text-2xl font-bold mb-4">С чего начать</h2>
+    <p class="text-slate-700">
+      Для B2B обычно начинаем с
+      <a href={`${base}services/audit/`} class="text-amber-600 font-semibold">аудита юнит-экономики и воронки</a>,
+      чтобы разговор с руководством о бюджете шёл на языке цифр, а не ощущений.
+      Дальше — <a href={`${base}services/strategy/`} class="text-amber-600 font-semibold">стратегия</a> или
+      <a href={`${base}services/retainer/`} class="text-amber-600 font-semibold">ведение на подписке</a>.
+    </p>
+  </section>
+
+  <CTASection
+    title="Нужны аргументы для разговора о бюджете?"
+    description="Оставьте заявку — покажу, как будет выглядеть аудит именно для вашей воронки."
+  />
+</BaseLayout>
