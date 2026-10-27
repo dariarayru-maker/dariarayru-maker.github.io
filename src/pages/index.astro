@@ -9,94 +9,130 @@ const base = import.meta.env.BASE_URL;
 const title = 'Антикризисный маркетинг для бизнеса в РФ — Daria Ray';
 const description =
   'Аудит, антикризисная стратегия и ведение маркетинга на подписке для малого, среднего и B2B-бизнеса: сохраняем продажи и защищаем бюджет, когда спрос падает, а стоимость лида растёт.';
+
+const triggers = [
+  'Продажи упали, а почему — непонятно',
+  'Реклама дорожает, бюджет урезали, а план не снизили',
+  'Площадка или канал продвижения заблокирован либо подорожал в разы',
+  'Нужно за 1–3 месяца показать руководству рост или экономию',
+  'Нет своего маркетолога, но без заявок бизнес не выживет',
+];
+
+const stats = [
+  { value: '8+', label: 'лет в growth-маркетинге' },
+  { value: '5+', label: 'стран, где запускались проекты' },
+  { value: '×4', label: 'рост выручки на падающем рынке' },
+];
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="mx-auto max-w-6xl px-4 pt-16 pb-12 grid lg:grid-cols-2 gap-10 items-center">
+  <section class="mx-auto grid max-w-6xl gap-12 px-4 pb-16 pt-14 lg:grid-cols-[1.1fr_1fr] lg:gap-16 lg:pt-20">
     <div>
-      <p class="text-amber-600 font-semibold mb-3">Антикризисный маркетинг · РФ</p>
-      <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-5">
+      <p class="text-sm text-ink-soft/70">Антикризисный маркетинг для бизнеса в РФ</p>
+      <h1 class="mt-4 max-w-xl font-display text-4xl font-medium leading-[1.1] tracking-tight text-ink sm:text-5xl">
         Маркетинг не падает вместе с рынком
       </h1>
-      <p class="text-lg text-slate-600 mb-8">
-        Помогаю малому, среднему и B2B-бизнесу перестроить маркетинг, когда спрос падает,
-        цена лида растёт или рекламный бюджет режут: находим, что в воронке держит продажи,
-        и что в кризис стало балластом.
+      <p class="mt-6 max-w-md text-lg text-ink-soft/80">
+        Помогаю малому, среднему и B2B-бизнесу перестроить маркетинг, когда спрос падает, цена лида
+        растёт или рекламный бюджет режут: нахожу, что в воронке держит продажи, а что в кризис
+        стало балластом.
       </p>
-      <div class="flex flex-wrap gap-3">
+      <div class="mt-8 flex flex-wrap gap-3">
         <a
           href={`${base}services/audit/`}
-          class="rounded-full bg-slate-900 text-white font-semibold px-6 py-3 hover:bg-amber-600 transition-colors"
+          class="border border-ink bg-ink px-6 py-3 font-medium text-paper transition-colors hover:bg-signal hover:border-signal"
         >
           Заказать антикризисный аудит
         </a>
         <a
           href={`${base}services/`}
-          class="rounded-full border border-slate-300 font-semibold px-6 py-3 hover:border-slate-900 transition-colors"
+          class="border border-line px-6 py-3 font-medium text-ink transition-colors hover:border-ink"
         >
           Все услуги
         </a>
       </div>
-      <p class="text-sm text-slate-500 mt-4">
-        8+ лет в growth-маркетинге · проекты в 5+ странах · рост выручки до 4× на падающем рынке
-      </p>
+
+      <dl class="mt-12 grid max-w-md grid-cols-3 divide-x divide-line/60 border-t border-line/60 pt-6">
+        {stats.map((stat) => (
+          <div class="px-4 first:pl-0">
+            <dt class="font-mono text-2xl text-ink">{stat.value}</dt>
+            <dd class="mt-1 text-xs text-ink-soft/70">{stat.label}</dd>
+          </div>
+        ))}
+      </dl>
     </div>
 
-    <div class="rounded-3xl bg-slate-900 text-white p-8">
-      <p class="font-semibold text-amber-400 mb-4">Когда обращаются за антикризисным маркетингом</p>
-      <ul class="space-y-3 text-slate-200">
-        <li>— Продажи упали, а почему — непонятно</li>
-        <li>— Реклама дорожает, бюджет урезали, а план не снизили</li>
-        <li>— Площадка/канал продвижения заблокирован или подорожал в разы</li>
-        <li>— Нужно за 1–3 месяца показать руководству рост или экономию</li>
-        <li>— Нет своего маркетолога, но без заявок бизнес не выживет</li>
+    <div class="bg-ink p-6 text-paper sm:p-8">
+      <svg viewBox="0 0 400 190" class="w-full" role="img" aria-labelledby="chart-title">
+        <title id="chart-title">Рынок падает, график выручки клиента выравнивается и растёт</title>
+        <line x1="0" y1="52" x2="400" y2="52" stroke="#3a4051" stroke-width="1" />
+        <line x1="0" y1="110" x2="400" y2="110" stroke="#3a4051" stroke-width="1" />
+        <line x1="222" y1="8" x2="222" y2="168" stroke="#565c6e" stroke-width="1" stroke-dasharray="3 4" />
+
+        <path d="M0,38 C 55,52 95,88 150,118 C 175,134 200,146 222,150" fill="none" stroke="#e0603e" stroke-width="2.5" stroke-linecap="round" />
+        <path d="M222,150 C 238,146 265,126 295,112 C 335,94 370,86 400,84" fill="none" stroke="#56b78a" stroke-width="2.5" stroke-linecap="round" />
+
+        <circle cx="222" cy="150" r="3.5" fill="#eceae1" />
+
+        <text x="0" y="24" font-family="IBM Plex Mono, monospace" font-size="11" fill="#9aa0b0">рынок</text>
+        <text x="222" y="183" font-family="IBM Plex Mono, monospace" font-size="11" fill="#9aa0b0" text-anchor="middle">сегодня</text>
+        <text x="400" y="74" font-family="IBM Plex Mono, monospace" font-size="11" fill="#9aa0b0" text-anchor="end">ваш маркетинг</text>
+      </svg>
+
+      <p class="mt-6 font-mono text-xs text-paper/50">Когда обращаются за антикризисным маркетингом</p>
+      <ul class="mt-3 divide-y divide-paper/10 border-t border-paper/10">
+        {triggers.map((item) => (
+          <li class="py-3 text-sm text-paper/85">{item}</li>
+        ))}
       </ul>
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-4 py-12">
-    <h2 class="text-2xl sm:text-3xl font-bold mb-2">Три шага от диагноза до результата</h2>
-    <p class="text-slate-600 mb-8 max-w-2xl">
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <h2 class="max-w-xl font-display text-2xl font-medium text-ink sm:text-3xl">
+      Три шага от диагноза до результата
+    </h2>
+    <p class="mt-3 max-w-xl text-ink-soft/80">
       Начинаем с аудита — без него антикризисные решения превращаются в угадайку.
     </p>
-    <div class="grid sm:grid-cols-3 gap-6">
+    <div class="mt-8 border-b border-line/60">
       <ServiceCard
         href={`${base}services/audit/`}
-        step="Шаг 1"
+        step="01"
         title="Антикризисный аудит маркетинга"
         description="Разбираем воронку, каналы и юнит-экономику: что держит продажи и что уже не работает."
-        price="от 1-2 недель"
+        price="1–2 недели"
       />
       <ServiceCard
         href={`${base}services/strategy/`}
-        step="Шаг 2"
+        step="02"
         title="Антикризисная стратегия"
-        description="План на 1-3 месяца: что сократить, что усилить, как защитить маржу и заявки."
-        price="проектно, 2-4 недели"
+        description="План на 1–3 месяца: что сократить, что усилить, как защитить маржу и заявки."
+        price="2–4 недели"
       />
       <ServiceCard
         href={`${base}services/retainer/`}
-        step="Шаг 3"
+        step="03"
         title="Ведение маркетинга на подписке"
         description="Внедряю стратегию и веду маркетинг каждый месяц: метрики, гипотезы, отчётность."
-        price="ежемесячная подписка"
+        price="ежемесячно"
       />
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-4 py-12">
-    <h2 class="text-2xl sm:text-3xl font-bold mb-2">Для кого</h2>
-    <div class="grid sm:grid-cols-2 gap-6 mt-6">
-      <a href={`${base}services/smb/`} class="rounded-2xl border border-slate-200 p-6 hover:border-amber-500 transition-colors bg-white">
-        <h3 class="text-xl font-bold mb-2">Малый и средний бизнес</h3>
-        <p class="text-slate-600">
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <h2 class="font-display text-2xl font-medium text-ink sm:text-3xl">Для кого</h2>
+    <div class="mt-8 grid gap-10 border-t border-line/60 pt-8 sm:grid-cols-2">
+      <a href={`${base}services/smb/`} class="group">
+        <h3 class="font-display text-xl font-medium text-ink group-hover:text-signal">Малый и средний бизнес</h3>
+        <p class="mt-3 text-ink-soft/80">
           Локальный бизнес, услуги, розница — когда нет штатного маркетолога и бюджета на агентство,
           а заявки нужны уже сейчас.
         </p>
       </a>
-      <a href={`${base}services/b2b/`} class="rounded-2xl border border-slate-200 p-6 hover:border-amber-500 transition-colors bg-white">
-        <h3 class="text-xl font-bold mb-2">B2B и средний бизнес</h3>
-        <p class="text-slate-600">
+      <a href={`${base}services/b2b/`} class="group">
+        <h3 class="font-display text-xl font-medium text-ink group-hover:text-signal">B2B и средний бизнес</h3>
+        <p class="mt-3 text-ink-soft/80">
           Длинный цикл сделки, маркетинг-директор должен обосновать бюджет перед руководством
           и снизить стоимость заявки.
         </p>
@@ -104,9 +140,11 @@ const description =
     </div>
   </section>
 
-  <section class="mx-auto max-w-6xl px-4 py-12">
-    <h2 class="text-2xl sm:text-3xl font-bold mb-6">Результаты на падающем и нестабильном рынке</h2>
-    <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <h2 class="font-display text-2xl font-medium text-ink sm:text-3xl">
+      Результаты на падающем и нестабильном рынке
+    </h2>
+    <div class="mt-8 grid gap-x-10 border-b border-line/60 sm:grid-cols-2">
       <CaseCard
         segment="smb"
         title="Эксперт на образовательном рынке"
@@ -117,7 +155,7 @@ const description =
       <CaseCard
         segment="b2b"
         title="B2B-продвижение услуг"
-        before="CPL высокий"
+        before="высокий CPL"
         after="выручка ×4"
         description="Снижение стоимости заявки до 300 ₽ при росте выручки в 4 раза."
       />
@@ -136,8 +174,8 @@ const description =
         description="Онлайн-продукт вышел на выручку без платного трафика — органика и партнёрства."
       />
     </div>
-    <a href={`${base}cases/`} class="inline-block mt-6 font-semibold text-amber-600 hover:text-amber-700">
-      Смотреть все кейсы →
+    <a href={`${base}cases/`} class="mt-6 inline-block font-medium text-ink underline decoration-line underline-offset-4 hover:decoration-signal hover:text-signal">
+      Смотреть все кейсы
     </a>
   </section>
 

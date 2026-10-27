@@ -3,44 +3,44 @@ const base = import.meta.env.BASE_URL;
 const year = new Date().getFullYear();
 ---
 
-<footer class="border-t border-slate-200 bg-slate-50 mt-16">
-  <div class="mx-auto max-w-6xl px-4 py-10 grid gap-8 sm:grid-cols-2 lg:grid-cols-4 text-sm">
+<footer class="mt-24 border-t border-line/60">
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 text-sm sm:grid-cols-2 lg:grid-cols-4">
     <div>
-      <p class="font-bold text-base mb-2">Daria Ray</p>
-      <p class="text-slate-600">
+      <p class="font-display text-base font-semibold text-ink">Daria Ray</p>
+      <p class="mt-2 text-ink-soft/80">
         Антикризисный маркетинг для малого, среднего и B2B-бизнеса в РФ: аудит, стратегия, ведение на подписке.
       </p>
     </div>
 
     <div>
-      <p class="font-semibold mb-2">Услуги</p>
-      <ul class="space-y-1 text-slate-600">
-        <li><a href={`${base}services/audit/`} class="hover:text-amber-600">Антикризисный аудит маркетинга</a></li>
-        <li><a href={`${base}services/strategy/`} class="hover:text-amber-600">Антикризисная стратегия</a></li>
-        <li><a href={`${base}services/retainer/`} class="hover:text-amber-600">Ведение маркетинга на подписке</a></li>
+      <p class="mb-2 font-mono text-xs text-ink-soft/60">Услуги</p>
+      <ul class="space-y-1.5 text-ink-soft/80">
+        <li><a href={`${base}services/audit/`} class="hover:text-signal">Антикризисный аудит маркетинга</a></li>
+        <li><a href={`${base}services/strategy/`} class="hover:text-signal">Антикризисная стратегия</a></li>
+        <li><a href={`${base}services/retainer/`} class="hover:text-signal">Ведение маркетинга на подписке</a></li>
       </ul>
     </div>
 
     <div>
-      <p class="font-semibold mb-2">Для кого</p>
-      <ul class="space-y-1 text-slate-600">
-        <li><a href={`${base}services/smb/`} class="hover:text-amber-600">Малый и средний бизнес</a></li>
-        <li><a href={`${base}services/b2b/`} class="hover:text-amber-600">B2B и средний бизнес</a></li>
-        <li><a href={`${base}blog/`} class="hover:text-amber-600">Блог и статьи</a></li>
-        <li><a href={`${base}cases/`} class="hover:text-amber-600">Кейсы</a></li>
+      <p class="mb-2 font-mono text-xs text-ink-soft/60">Для кого</p>
+      <ul class="space-y-1.5 text-ink-soft/80">
+        <li><a href={`${base}services/smb/`} class="hover:text-signal">Малый и средний бизнес</a></li>
+        <li><a href={`${base}services/b2b/`} class="hover:text-signal">B2B и средний бизнес</a></li>
+        <li><a href={`${base}blog/`} class="hover:text-signal">Блог и статьи</a></li>
+        <li><a href={`${base}cases/`} class="hover:text-signal">Кейсы</a></li>
       </ul>
     </div>
 
     <div>
-      <p class="font-semibold mb-2">Контакты</p>
-      <ul class="space-y-1 text-slate-600">
-        <li><a href="https://t.me/jobsaccountdi" class="hover:text-amber-600" target="_blank" rel="noopener">Telegram</a></li>
-        <li><a href={`${base}contacts/`} class="hover:text-amber-600">Форма заявки</a></li>
+      <p class="mb-2 font-mono text-xs text-ink-soft/60">Контакты</p>
+      <ul class="space-y-1.5 text-ink-soft/80">
+        <li><a href="https://t.me/jobsaccountdi" class="hover:text-signal" target="_blank" rel="noopener">Telegram</a></li>
+        <li><a href={`${base}contacts/`} class="hover:text-signal">Форма заявки</a></li>
       </ul>
     </div>
   </div>
 
-  <div class="border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+  <div class="border-t border-line/60 py-4 text-center font-mono text-xs text-ink-soft/60">
     © {year} Daria Ray. Антикризисный маркетинг для бизнеса в РФ.
   </div>
 </footer>

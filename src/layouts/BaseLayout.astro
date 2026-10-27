@@ -20,6 +20,13 @@ const fullTitle = title.includes('Daria Ray') ? title : `${title} | Daria Ray â€
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="icon" type="image/svg+xml" href={`${import.meta.env.BASE_URL}favicon.svg`} />
 
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
     <title>{fullTitle}</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={Astro.url.href} />
@@ -35,7 +42,7 @@ const fullTitle = title.includes('Daria Ray') ? title : `${title} | Daria Ray â€
     <meta name="yandex-verification" content="485753a1e73f76f0" />
     <slot name="head" />
   </head>
-  <body class="min-h-screen bg-white text-slate-900 antialiased flex flex-col">
+  <body class="min-h-screen bg-paper text-ink antialiased flex flex-col">
     <Header />
     <main class="flex-1">
       <slot />

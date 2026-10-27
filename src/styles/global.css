@@ -1,2 +1,24 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
+
+@theme {
+  --color-ink: #171b24;
+  --color-ink-soft: #2b3140;
+  --color-paper: #eceae1;
+  --color-paper-deep: #dbd6c8;
+  --color-signal: #c1391f;
+  --color-signal-soft: #ecd9d0;
+  --color-steady: #2f6f4e;
+  --color-steady-soft: #dbe6dc;
+  --color-line: #b7b0a0;
+
+  --font-display: "Fraunces", "Iowan Old Style", serif;
+  --font-sans: "IBM Plex Sans", "Helvetica Neue", sans-serif;
+  --font-mono: "IBM Plex Mono", "SFMono-Regular", monospace;
+}
+
+@layer base {
+  body {
+    font-family: var(--font-sans);
+  }
+}
