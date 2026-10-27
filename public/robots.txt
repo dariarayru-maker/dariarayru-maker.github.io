@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dariarayru-maker.github.io/anti-crisis-marketing/sitemap-index.xml
+Sitemap: https://dariarayru-maker.github.io/sitemap-index.xml

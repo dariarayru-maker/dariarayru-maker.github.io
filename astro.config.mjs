@@ -8,7 +8,6 @@ import sitemap from '@astrojs/sitemap';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://dariarayru-maker.github.io',
-  base: '/anti-crisis-marketing',
   trailingSlash: 'always',
   vite: {
     plugins: [tailwindcss()]

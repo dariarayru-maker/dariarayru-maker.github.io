@@ -39,6 +39,6 @@ draft: false
 ## Как выстроить это системно
 
 Работа с базой клиентов — часть
-[антикризисной стратегии](/anti-crisis-marketing/services/strategy/), а дальше
+[антикризисной стратегии](/services/strategy/), а дальше
 её можно вести на регулярной основе в рамках
-[ведения маркетинга на подписке](/anti-crisis-marketing/services/retainer/).
+[ведения маркетинга на подписке](/services/retainer/).
