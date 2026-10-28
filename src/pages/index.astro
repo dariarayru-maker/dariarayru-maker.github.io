@@ -120,16 +120,18 @@ const stats = [
     </div>
   </section>
 
-  <div class="relative h-64 overflow-hidden bg-ink sm:h-80">
+  <div class="relative h-72 overflow-hidden bg-ink sm:h-96">
     <img
       src={`${base}images/market-chart.webp`}
       alt="Графики котировок на тёмном терминале"
       class="h-full w-full object-cover opacity-60 mix-blend-luminosity"
     />
-    <div class="absolute inset-0 bg-gradient-to-r from-ink via-ink/50 to-ink/10"></div>
-    <p class="absolute bottom-6 left-4 right-4 max-w-xl font-mono text-lg sm:text-2xl text-paper sm:left-1/2 sm:-translate-x-[calc(50%-1.5rem)]">
-      Решения на падающем рынке принимают по данным, а не по ощущениям
-    </p>
+    <div class="absolute inset-0 bg-ink/40"></div>
+    <div class="absolute inset-0 flex items-center justify-center px-6">
+      <p class="max-w-2xl text-center font-mono text-2xl sm:text-4xl font-medium leading-tight text-paper">
+        Решения на падающем рынке принимают по данным, а не по ощущениям
+      </p>
+    </div>
   </div>
 
   <section class="mx-auto max-w-6xl px-4 py-16">
