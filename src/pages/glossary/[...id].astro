@@ -1,0 +1,38 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const terms = await getCollection('glossary', ({ data }) => !data.draft);
+  return terms.map((term) => ({
+    params: { id: term.id },
+    props: { term },
+  }));
+}
+
+const base = import.meta.env.BASE_URL;
+const { term } = Astro.props;
+const { Content } = await render(term);
+---
+
+<BaseLayout title={term.data.title} description={term.data.description} type="article">
+  <article class="mx-auto max-w-3xl px-4 pt-16 pb-16">
+    <a href={`${base}glossary/`} class="text-sm text-amber-600 font-semibold hover:text-amber-700">
+      ← Глоссарий маркетинга
+    </a>
+    <span class="block text-xs font-semibold uppercase tracking-wide text-amber-600 mt-4">
+      {term.data.category}
+    </span>
+    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-3 mb-8">{term.data.title}</h1>
+
+    <div class="prose prose-slate max-w-none prose-headings:font-bold prose-a:text-amber-600">
+      <Content />
+    </div>
+  </article>
+
+  <CTASection
+    title="Нужно применить это на практике в своём бизнесе?"
+    description="Оставьте заявку на бесплатную диагностику — разберём вашу ситуацию за 20 минут."
+  />
+</BaseLayout>
