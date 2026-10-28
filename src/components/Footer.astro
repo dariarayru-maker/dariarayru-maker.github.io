@@ -4,8 +4,8 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="mt-24 border-t border-line/60">
-  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 text-sm sm:grid-cols-2 lg:grid-cols-4">
-    <div>
+  <div class="mx-auto grid max-w-6xl gap-10 px-4 py-12 text-sm sm:grid-cols-2 lg:grid-cols-5">
+    <div class="lg:col-span-1">
       <p class="font-display text-base font-semibold text-ink">Daria Ray</p>
       <p class="mt-2 text-ink-soft/80">
         Антикризисный маркетинг для малого, среднего и B2B-бизнеса: аудит, стратегия, ведение на подписке.
@@ -13,11 +13,11 @@ const year = new Date().getFullYear();
     </div>
 
     <div>
-      <p class="mb-2 font-mono text-xs text-ink-soft/60">Услуги</p>
+      <p class="mb-2 font-mono text-xs text-ink-soft/60">Формат работы</p>
       <ul class="space-y-1.5 text-ink-soft/80">
-        <li><a href={`${base}services/audit/`} class="hover:text-signal">Антикризисный аудит маркетинга</a></li>
+        <li><a href={`${base}services/audit/`} class="hover:text-signal">Антикризисный аудит</a></li>
         <li><a href={`${base}services/strategy/`} class="hover:text-signal">Антикризисная стратегия</a></li>
-        <li><a href={`${base}services/retainer/`} class="hover:text-signal">Ведение маркетинга на подписке</a></li>
+        <li><a href={`${base}services/retainer/`} class="hover:text-signal">Ведение на подписке</a></li>
       </ul>
     </div>
 
@@ -26,6 +26,12 @@ const year = new Date().getFullYear();
       <ul class="space-y-1.5 text-ink-soft/80">
         <li><a href={`${base}services/smb/`} class="hover:text-signal">Малый и средний бизнес</a></li>
         <li><a href={`${base}services/b2b/`} class="hover:text-signal">B2B и средний бизнес</a></li>
+      </ul>
+    </div>
+
+    <div>
+      <p class="mb-2 font-mono text-xs text-ink-soft/60">Контент</p>
+      <ul class="space-y-1.5 text-ink-soft/80">
         <li><a href={`${base}blog/`} class="hover:text-signal">Блог и статьи</a></li>
         <li><a href={`${base}glossary/`} class="hover:text-signal">Глоссарий маркетинга</a></li>
         <li><a href={`${base}cases/`} class="hover:text-signal">Кейсы</a></li>

@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/CTASection.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -14,14 +15,24 @@ export async function getStaticPaths() {
 const base = import.meta.env.BASE_URL;
 const { term } = Astro.props;
 const { Content } = await render(term);
+
+const allTerms = await getCollection('glossary', ({ data }) => !data.draft);
+const related = allTerms
+  .filter((t) => t.id !== term.id && t.data.category === term.data.category)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title, 'ru'))
+  .slice(0, 5);
 ---
 
 <BaseLayout title={term.data.title} description={term.data.description} type="article">
-  <article class="mx-auto max-w-3xl px-4 pt-16 pb-16">
-    <a href={`${base}glossary/`} class="text-sm text-amber-600 font-semibold hover:text-amber-700">
-      ← Глоссарий маркетинга
-    </a>
-    <span class="block text-xs font-semibold uppercase tracking-wide text-amber-600 mt-4">
+  <Breadcrumbs items={[
+    { label: 'Главная', href: base },
+    { label: 'Глоссарий', href: `${base}glossary/` },
+    { label: term.data.category },
+    { label: term.data.title },
+  ]} />
+
+  <article class="mx-auto max-w-3xl px-4 pt-10 pb-16">
+    <span class="block text-xs font-semibold uppercase tracking-wide text-amber-600">
       {term.data.category}
     </span>
     <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-3 mb-8">{term.data.title}</h1>
@@ -30,6 +41,23 @@ const { Content } = await render(term);
       <Content />
     </div>
   </article>
+
+  {related.length > 0 && (
+    <section class="mx-auto max-w-3xl px-4 pb-16">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 border-t border-slate-200 pt-8 mb-4">
+        Термины рядом · {term.data.category}
+      </h2>
+      <ul class="space-y-3">
+        {related.map((t) => (
+          <li>
+            <a href={`${base}glossary/${t.id}/`} class="font-medium text-slate-900 hover:text-amber-600">
+              {t.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 
   <CTASection
     title="Нужно применить это на практике в своём бизнесе?"

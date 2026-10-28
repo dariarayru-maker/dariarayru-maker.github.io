@@ -1,12 +1,16 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
+const base = import.meta.env.BASE_URL;
 const title = 'Контакты';
 const description = 'Оставьте заявку на антикризисный аудит маркетинга — отвечу в Telegram в течение рабочего дня.';
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="mx-auto max-w-3xl px-4 pt-16 pb-16">
+  <Breadcrumbs items={[{ label: 'Главная', href: base }, { label: 'Контакты' }]} />
+
+  <section class="mx-auto max-w-3xl px-4 pt-10 pb-16">
     <h1 class="text-4xl font-extrabold tracking-tight mb-6">Контакты</h1>
     <p class="text-lg text-slate-600 mb-8">
       Быстрее всего — написать в Telegram. Коротко опишите бизнес, что произошло

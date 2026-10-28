@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/CTASection.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { getCollection, render } from 'astro:content';
 
 export async function getStaticPaths() {
@@ -11,6 +12,7 @@ export async function getStaticPaths() {
   }));
 }
 
+const base = import.meta.env.BASE_URL;
 const { post } = Astro.props;
 const { Content } = await render(post);
 
@@ -19,10 +21,23 @@ const segmentLabel: Record<string, string> = {
   b2b: 'B2B',
   general: 'Общее',
 };
+
+const allPosts = await getCollection('blog', ({ data }) => !data.draft);
+const related = allPosts
+  .filter((p) => p.id !== post.id && p.data.segment === post.data.segment)
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 3);
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description} type="article">
-  <article class="mx-auto max-w-3xl px-4 pt-16 pb-16">
+  <Breadcrumbs items={[
+    { label: 'Главная', href: base },
+    { label: 'Блог', href: `${base}blog/` },
+    { label: segmentLabel[post.data.segment] },
+    { label: post.data.title },
+  ]} />
+
+  <article class="mx-auto max-w-3xl px-4 pt-10 pb-16">
     <span class="text-xs font-semibold uppercase tracking-wide text-amber-600">
       {segmentLabel[post.data.segment]} · {post.data.category}
     </span>
@@ -35,6 +50,23 @@ const segmentLabel: Record<string, string> = {
       <Content />
     </div>
   </article>
+
+  {related.length > 0 && (
+    <section class="mx-auto max-w-3xl px-4 pb-16">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 border-t border-slate-200 pt-8 mb-4">
+        Похожие статьи · {segmentLabel[post.data.segment]}
+      </h2>
+      <ul class="space-y-3">
+        {related.map((p) => (
+          <li>
+            <a href={`${base}blog/${p.id}/`} class="font-medium text-slate-900 hover:text-amber-600">
+              {p.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
 
   <CTASection
     title="Узнайте, как это работает для вашего бизнеса"

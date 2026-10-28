@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import { getCollection } from 'astro:content';
 
 const base = import.meta.env.BASE_URL;
@@ -19,7 +20,9 @@ const segmentLabel: Record<string, string> = {
 ---
 
 <BaseLayout title={title} description={description}>
-  <section class="mx-auto max-w-6xl px-4 pt-16 pb-10">
+  <Breadcrumbs items={[{ label: 'Главная', href: base }, { label: 'Блог' }]} />
+
+  <section class="mx-auto max-w-6xl px-4 pt-10 pb-10">
     <h1 class="text-4xl font-extrabold tracking-tight mb-4">Блог</h1>
     <p class="text-lg text-slate-600 max-w-2xl">
       Статьи о том, как бизнесу сохранять продажи и маркетинговый бюджет

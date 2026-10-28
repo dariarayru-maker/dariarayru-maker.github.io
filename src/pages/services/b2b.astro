@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/CTASection.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
 const base = import.meta.env.BASE_URL;
 const title = 'Антикризисный маркетинг для B2B и среднего бизнеса';
@@ -9,7 +10,13 @@ const description =
 ---
 
 <BaseLayout title={title} description={description} type="article">
-  <section class="mx-auto max-w-3xl px-4 pt-16 pb-10">
+  <Breadcrumbs items={[
+    { label: 'Главная', href: base },
+    { label: 'Услуги', href: `${base}services/` },
+    { label: 'B2B и средний бизнес' },
+  ]} />
+
+  <section class="mx-auto max-w-3xl px-4 pt-10 pb-10">
     <p class="text-amber-600 font-semibold mb-3">Для B2B и среднего бизнеса</p>
     <h1 class="text-4xl font-extrabold tracking-tight mb-5">
       Когда нужно обосновать маркетинговый бюджет перед руководством
@@ -35,10 +42,10 @@ const description =
   <section class="mx-auto max-w-3xl px-4 pb-16">
     <h2 class="text-2xl font-bold mb-4">С чего начать</h2>
     <p class="text-slate-700">
-      Для B2B обычно начинаем с
+      Для B2B обычно начинаем с{' '}
       <a href={`${base}services/audit/`} class="text-amber-600 font-semibold">аудита юнит-экономики и воронки</a>,
       чтобы разговор с руководством о бюджете шёл на языке цифр, а не ощущений.
-      Дальше — <a href={`${base}services/strategy/`} class="text-amber-600 font-semibold">стратегия</a> или
+      Дальше — <a href={`${base}services/strategy/`} class="text-amber-600 font-semibold">стратегия</a> или{' '}
       <a href={`${base}services/retainer/`} class="text-amber-600 font-semibold">ведение на подписке</a>.
     </p>
   </section>

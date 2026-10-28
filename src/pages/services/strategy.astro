@@ -1,14 +1,22 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import CTASection from '../../components/CTASection.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 
+const base = import.meta.env.BASE_URL;
 const title = 'Антикризисная стратегия маркетинга';
 const description =
   'План на 1-3 месяца: что сократить, что усилить и как перестроить воронку и бюджет, чтобы продажи не упали вместе с рынком.';
 ---
 
 <BaseLayout title={title} description={description} type="article">
-  <section class="mx-auto max-w-3xl px-4 pt-16 pb-10">
+  <Breadcrumbs items={[
+    { label: 'Главная', href: base },
+    { label: 'Услуги', href: `${base}services/` },
+    { label: 'Антикризисная стратегия' },
+  ]} />
+
+  <section class="mx-auto max-w-3xl px-4 pt-10 pb-10">
     <p class="text-amber-600 font-semibold mb-3">Шаг 2 · проектная работа</p>
     <h1 class="text-4xl font-extrabold tracking-tight mb-5">Антикризисная стратегия</h1>
     <p class="text-lg text-slate-600">
@@ -32,8 +40,13 @@ const description =
   <section class="mx-auto max-w-3xl px-4 pb-10">
     <h2 class="text-2xl font-bold mb-4">Кому подходит</h2>
     <p class="text-slate-700">
-      Бизнесу, у которого уже есть диагноз (свой или по итогам аудита) и который готов
-      действовать: нужен конкретный план, а не общие рекомендации "улучшить SEO и таргет".
+      Бизнесу, у которого уже есть диагноз (свой или по итогам{' '}
+      <a href={`${base}services/audit/`} class="font-semibold text-amber-600 hover:text-amber-700">аудита</a>)
+      и который готов действовать: нужен конкретный план, а не общие рекомендации
+      "улучшить SEO и таргет". Подходит и{' '}
+      <a href={`${base}services/smb/`} class="font-semibold text-amber-600 hover:text-amber-700">малому и среднему бизнесу</a>,
+      и <a href={`${base}services/b2b/`} class="font-semibold text-amber-600 hover:text-amber-700">B2B</a> —
+      план строится под конкретную ситуацию, а не по шаблону.
     </p>
   </section>
 
