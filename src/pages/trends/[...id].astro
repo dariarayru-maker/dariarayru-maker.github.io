@@ -1,0 +1,66 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CTASection from '../../components/CTASection.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import { getCollection, render } from 'astro:content';
+
+export async function getStaticPaths() {
+  const items = await getCollection('trends', ({ data }) => !data.draft);
+  return items.map((item) => ({
+    params: { id: item.id },
+    props: { item },
+  }));
+}
+
+const base = import.meta.env.BASE_URL;
+const { item } = Astro.props;
+const { Content } = await render(item);
+
+const allTrends = await getCollection('trends', ({ data }) => !data.draft);
+const related = allTrends
+  .filter((t) => t.id !== item.id && t.data.category === item.data.category)
+  .sort((a, b) => a.data.title.localeCompare(b.data.title, 'ru'))
+  .slice(0, 3);
+---
+
+<BaseLayout title={item.data.title} description={item.data.description} type="article">
+  <Breadcrumbs items={[
+    { label: 'Главная', href: base },
+    { label: 'Тренды', href: `${base}trends/` },
+    { label: item.data.category },
+    { label: item.data.title },
+  ]} />
+
+  <article class="mx-auto max-w-3xl px-4 pt-10 pb-16">
+    <span class="block text-xs font-semibold uppercase tracking-wide text-amber-600">
+      {item.data.category}
+    </span>
+    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-3 mb-8">{item.data.title}</h1>
+
+    <div class="prose prose-slate max-w-none prose-headings:font-bold prose-a:text-amber-600">
+      <Content />
+    </div>
+  </article>
+
+  {related.length > 0 && (
+    <section class="mx-auto max-w-3xl px-4 pb-16">
+      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 border-t border-slate-200 pt-8 mb-4">
+        Похожие темы · {item.data.category}
+      </h2>
+      <ul class="space-y-3">
+        {related.map((t) => (
+          <li>
+            <a href={`${base}trends/${t.id}/`} class="font-medium text-slate-900 hover:text-amber-600">
+              {t.data.title}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </section>
+  )}
+
+  <CTASection
+    title="Нужно применить это к своему бизнесу?"
+    description="Оставьте заявку на бесплатную диагностику — разберём вашу ситуацию за 30 минут."
+  />
+</BaseLayout>
