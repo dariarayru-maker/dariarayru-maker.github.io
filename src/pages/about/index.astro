@@ -20,43 +20,44 @@ const stats = [
 <BaseLayout title={title} description={description}>
   <Breadcrumbs items={[{ label: 'Главная', href: base }, { label: 'Обо мне' }]} />
 
-  <div class="relative h-64 overflow-hidden bg-ink sm:h-80">
-    <img
-      src={`${base}images/facade.webp`}
-      alt="Фасад здания с ровной сеткой окон — структура и дисциплина вместо хаоса"
-      class="h-full w-full object-cover opacity-70 mix-blend-luminosity"
-    />
-    <div class="absolute inset-0 bg-ink/40"></div>
-    <p class="absolute bottom-6 left-4 right-4 mx-auto max-w-6xl font-mono text-xs text-paper/70 sm:left-1/2 sm:-translate-x-1/2">
-      Сначала структура, потом стратегия
-    </p>
-  </div>
+  <section class="mx-auto grid max-w-5xl gap-10 px-4 pb-16 pt-14 sm:grid-cols-[1fr_1.3fr] sm:items-start sm:gap-14">
+    <div class="overflow-hidden rounded-sm">
+      <img
+        src={`${base}images/daria-portrait.webp`}
+        alt="Дарья Дегтярева"
+        class="w-full h-auto object-cover"
+        width="1200"
+        height="1600"
+      />
+    </div>
 
-  <section class="mx-auto max-w-3xl px-4 pb-16 pt-14">
-    <h1 class="font-display text-4xl font-medium text-ink">Дарья Дегтярева</h1>
-    <p class="mt-6 text-lg text-ink-soft/80">
-      Я growth-маркетолог с опытом построения систем роста для digital- и mobile-продуктов:
-      acquisition → activation → retention → monetization. Последние годы фокусируюсь на
-      антикризисной перестройке маркетинга — когда привычные каналы дорожают или перестают
-      работать, а бизнесу нужно не потерять продажи здесь и сейчас.
-    </p>
+    <div>
+      <p class="font-mono text-xs text-ink-soft/50">Сначала структура, потом стратегия</p>
+      <h1 class="mt-3 font-display text-4xl font-medium text-ink">Дарья Дегтярева</h1>
+      <p class="mt-6 text-lg text-ink-soft/80">
+        Я growth-маркетолог с опытом построения систем роста для digital- и mobile-продуктов:
+        acquisition → activation → retention → monetization. Последние годы фокусируюсь на
+        антикризисной перестройке маркетинга — когда привычные каналы дорожают или перестают
+        работать, а бизнесу нужно не потерять продажи здесь и сейчас.
+      </p>
 
-    <dl class="mt-10 grid grid-cols-2 gap-y-8 border-t border-line/60 pt-6 sm:grid-cols-4">
-      {stats.map((stat) => (
-        <div>
-          <dt class="font-mono text-2xl text-ink">{stat.value}</dt>
-          <dd class="mt-1 text-xs text-ink-soft/70">{stat.label}</dd>
-        </div>
-      ))}
-    </dl>
+      <dl class="mt-10 grid grid-cols-2 gap-y-8 border-t border-line/60 pt-6 sm:grid-cols-4">
+        {stats.map((stat) => (
+          <div>
+            <dt class="font-mono text-2xl text-ink">{stat.value}</dt>
+            <dd class="mt-1 text-xs text-ink-soft/70">{stat.label}</dd>
+          </div>
+        ))}
+      </dl>
 
-    <p class="mt-10 text-ink-soft/80">
-      Работаю проектно и на подписке, удалённо, как ИП — по договору, с закрывающими
-      документами. Подробнее о форматах работы — на странице{' '}
-      <a href={`${base}services/`} class="text-ink underline decoration-line underline-offset-4 hover:decoration-signal hover:text-signal">
-        услуг
-      </a>.
-    </p>
+      <p class="mt-10 text-ink-soft/80">
+        Работаю проектно и на подписке, удалённо, как ИП — по договору, с закрывающими
+        документами. Подробнее о форматах работы — на странице{' '}
+        <a href={`${base}services/`} class="text-ink underline decoration-line underline-offset-4 hover:decoration-signal hover:text-signal">
+          услуг
+        </a>.
+      </p>
+    </div>
   </section>
 
   <Testimonials />
