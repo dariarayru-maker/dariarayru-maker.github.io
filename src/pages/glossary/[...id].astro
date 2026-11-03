@@ -21,6 +21,19 @@ const related = allTerms
   .filter((t) => t.id !== term.id && t.data.category === term.data.category)
   .sort((a, b) => a.data.title.localeCompare(b.data.title, 'ru'))
   .slice(0, 5);
+
+const termSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'DefinedTerm',
+  name: term.data.title,
+  description: term.data.description,
+  inDefinedTermSet: {
+    '@type': 'DefinedTermSet',
+    name: 'Глоссарий маркетинга — Дарья Дегтярева',
+    url: new URL(`${base}glossary/`, Astro.site).href,
+  },
+  url: new URL(`${base}glossary/${term.id}/`, Astro.site).href,
+};
 ---
 
 <BaseLayout title={term.data.title} description={term.data.description} type="article">
@@ -31,13 +44,15 @@ const related = allTerms
     { label: term.data.title },
   ]} />
 
+  <script type="application/ld+json" set:html={JSON.stringify(termSchema)} />
+
   <article class="mx-auto max-w-3xl px-4 pt-10 pb-16">
-    <span class="block text-xs font-semibold uppercase tracking-wide text-amber-600">
+    <span class="block text-xs font-semibold uppercase tracking-wide text-signal">
       {term.data.category}
     </span>
     <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-3 mb-8">{term.data.title}</h1>
 
-    <div class="prose prose-slate max-w-none prose-headings:font-bold prose-a:text-amber-600">
+    <div class="prose prose-slate max-w-none prose-headings:font-bold prose-a:text-signal">
       <Content />
     </div>
   </article>
@@ -50,7 +65,7 @@ const related = allTerms
       <ul class="space-y-3">
         {related.map((t) => (
           <li>
-            <a href={`${base}glossary/${t.id}/`} class="font-medium text-slate-900 hover:text-amber-600">
+            <a href={`${base}glossary/${t.id}/`} class="font-medium text-slate-900 hover:text-signal">
               {t.data.title}
             </a>
           </li>

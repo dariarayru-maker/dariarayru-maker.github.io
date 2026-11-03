@@ -21,6 +21,17 @@ const related = allTrends
   .filter((t) => t.id !== item.id && t.data.category === item.data.category)
   .sort((a, b) => a.data.title.localeCompare(b.data.title, 'ru'))
   .slice(0, 3);
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: item.data.title,
+  description: item.data.description,
+  datePublished: item.data.pubDate.toISOString(),
+  dateModified: (item.data.updatedDate ?? item.data.pubDate).toISOString(),
+  author: { '@type': 'Person', name: 'Дарья Дегтярева' },
+  url: new URL(`${base}trends/${item.id}/`, Astro.site).href,
+};
 ---
 
 <BaseLayout title={item.data.title} description={item.data.description} type="article">
@@ -31,13 +42,15 @@ const related = allTrends
     { label: item.data.title },
   ]} />
 
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
   <article class="mx-auto max-w-3xl px-4 pt-10 pb-16">
-    <span class="block text-xs font-semibold uppercase tracking-wide text-amber-600">
+    <span class="block text-xs font-semibold uppercase tracking-wide text-signal">
       {item.data.category}
     </span>
     <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-3 mb-8">{item.data.title}</h1>
 
-    <div class="prose prose-slate max-w-none prose-headings:font-bold prose-a:text-amber-600">
+    <div class="prose prose-slate max-w-none prose-headings:font-bold prose-a:text-signal">
       <Content />
     </div>
   </article>
@@ -50,7 +63,7 @@ const related = allTrends
       <ul class="space-y-3">
         {related.map((t) => (
           <li>
-            <a href={`${base}trends/${t.id}/`} class="font-medium text-slate-900 hover:text-amber-600">
+            <a href={`${base}trends/${t.id}/`} class="font-medium text-slate-900 hover:text-signal">
               {t.data.title}
             </a>
           </li>

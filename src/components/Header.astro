@@ -5,6 +5,8 @@ const nav = [
   { href: `${base}services/`, label: 'Услуги' },
   { href: `${base}cases/`, label: 'Кейсы' },
   { href: `${base}blog/`, label: 'Блог' },
+  { href: `${base}glossary/`, label: 'Глоссарий' },
+  { href: `${base}trends/`, label: 'Тренды' },
   { href: `${base}about/`, label: 'Обо мне' },
 ];
 ---
@@ -16,7 +18,7 @@ const nav = [
       <span class="font-mono text-[11px] text-ink-soft/60">Антикризисный маркетинг</span>
     </a>
 
-    <nav class="hidden items-center gap-6 text-sm lg:flex">
+    <nav class="hidden items-center gap-5 text-sm lg:flex">
       {nav.map((item) => (
         <a href={item.href} class="text-ink-soft/80 transition-colors hover:text-ink">
           {item.label}

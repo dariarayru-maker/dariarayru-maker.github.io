@@ -4,8 +4,19 @@ import ServiceCard from '../components/ServiceCard.astro';
 import CaseCard from '../components/CaseCard.astro';
 import CTASection from '../components/CTASection.astro';
 import Testimonials from '../components/Testimonials.astro';
+import { getCollection } from 'astro:content';
 
 const base = import.meta.env.BASE_URL;
+
+const latestPosts = (await getCollection('blog', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 2);
+const latestTrends = (await getCollection('trends', ({ data }) => !data.draft))
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+  .slice(0, 2);
+const featuredGlossary = (await getCollection('glossary', ({ data }) => !data.draft))
+  .filter((t) => ['chto-takoe-marketing', 'metriki-analitika-marketinga'].includes(t.id))
+  .slice(0, 2);
 
 const title = 'Антикризисный маркетинг для бизнеса — Дарья Дегтярева';
 const description =
@@ -208,6 +219,64 @@ const stats = [
   </section>
 
   <Testimonials />
+
+  <section class="mx-auto max-w-6xl px-4 py-16">
+    <h2 class="font-display text-2xl font-medium text-ink sm:text-3xl">Разбираемся в вопросе</h2>
+    <p class="mt-3 max-w-2xl text-ink-soft/80">
+      Статьи, термины и разбор актуальных процессов в маркетинге — без воды и без
+      абстрактных списков: с конкретными цифрами и тем, что делать на практике.
+    </p>
+
+    <div class="mt-8 grid gap-10 border-t border-line/60 pt-8 sm:grid-cols-3">
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wide text-ink-soft/50">Блог</span>
+        <ul class="mt-3 space-y-3">
+          {latestPosts.map((post) => (
+            <li>
+              <a href={`${base}blog/${post.id}/`} class="font-display text-base font-medium text-ink hover:text-signal">
+                {post.data.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a href={`${base}blog/`} class="mt-4 inline-block font-mono text-xs text-ink-soft/70 underline decoration-line underline-offset-4 hover:text-signal hover:decoration-signal">
+          Все статьи →
+        </a>
+      </div>
+
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wide text-ink-soft/50">Глоссарий</span>
+        <ul class="mt-3 space-y-3">
+          {featuredGlossary.map((term) => (
+            <li>
+              <a href={`${base}glossary/${term.id}/`} class="font-display text-base font-medium text-ink hover:text-signal">
+                {term.data.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a href={`${base}glossary/`} class="mt-4 inline-block font-mono text-xs text-ink-soft/70 underline decoration-line underline-offset-4 hover:text-signal hover:decoration-signal">
+          Все термины →
+        </a>
+      </div>
+
+      <div>
+        <span class="font-mono text-xs uppercase tracking-wide text-ink-soft/50">Тренды</span>
+        <ul class="mt-3 space-y-3">
+          {latestTrends.map((item) => (
+            <li>
+              <a href={`${base}trends/${item.id}/`} class="font-display text-base font-medium text-ink hover:text-signal">
+                {item.data.title}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a href={`${base}trends/`} class="mt-4 inline-block font-mono text-xs text-ink-soft/70 underline decoration-line underline-offset-4 hover:text-signal hover:decoration-signal">
+          Все тренды →
+        </a>
+      </div>
+    </div>
+  </section>
 
   <CTASection
     title="Не знаете, с чего начать антикризисную перестройку?"

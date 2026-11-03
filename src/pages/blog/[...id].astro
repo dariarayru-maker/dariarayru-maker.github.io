@@ -27,6 +27,17 @@ const related = allPosts
   .filter((p) => p.id !== post.id && p.data.segment === post.data.segment)
   .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
   .slice(0, 3);
+
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: post.data.title,
+  description: post.data.description,
+  datePublished: post.data.pubDate.toISOString(),
+  dateModified: (post.data.updatedDate ?? post.data.pubDate).toISOString(),
+  author: { '@type': 'Person', name: 'Дарья Дегтярева' },
+  url: new URL(`${base}blog/${post.id}/`, Astro.site).href,
+};
 ---
 
 <BaseLayout title={post.data.title} description={post.data.description} type="article">
@@ -37,8 +48,10 @@ const related = allPosts
     { label: post.data.title },
   ]} />
 
+  <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+
   <article class="mx-auto max-w-3xl px-4 pt-10 pb-16">
-    <span class="text-xs font-semibold uppercase tracking-wide text-amber-600">
+    <span class="text-xs font-semibold uppercase tracking-wide text-signal">
       {segmentLabel[post.data.segment]} · {post.data.category}
     </span>
     <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-3 mb-4">{post.data.title}</h1>
@@ -46,7 +59,7 @@ const related = allPosts
       {post.data.pubDate.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}
     </time>
 
-    <div class="prose prose-slate max-w-none mt-8 prose-headings:font-bold prose-a:text-amber-600">
+    <div class="prose prose-slate max-w-none mt-8 prose-headings:font-bold prose-a:text-signal">
       <Content />
     </div>
   </article>
@@ -59,7 +72,7 @@ const related = allPosts
       <ul class="space-y-3">
         {related.map((p) => (
           <li>
-            <a href={`${base}blog/${p.id}/`} class="font-medium text-slate-900 hover:text-amber-600">
+            <a href={`${base}blog/${p.id}/`} class="font-medium text-slate-900 hover:text-signal">
               {p.data.title}
             </a>
           </li>

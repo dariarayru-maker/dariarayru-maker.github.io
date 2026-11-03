@@ -7,6 +7,16 @@ const base = import.meta.env.BASE_URL;
 const title = 'Бесплатный антикризисный аудит маркетинга';
 const description =
   'Бесплатный звонок на 30 минут: разбираю маркетинг и продажи, что в кризис держит выручку, что стало балластом, и с чего начать, чтобы не терять бюджет дальше.';
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: title,
+  description,
+  provider: { '@type': 'Person', name: 'Дарья Дегтярева' },
+  offers: { '@type': 'Offer', price: '0', priceCurrency: 'RUB' },
+  url: new URL(`${base}services/audit/`, Astro.site).href,
+};
 ---
 
 <BaseLayout title={title} description={description} type="article">
@@ -16,8 +26,10 @@ const description =
     { label: 'Антикризисный аудит' },
   ]} />
 
+  <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+
   <section class="mx-auto max-w-3xl px-4 pt-10 pb-10">
-    <p class="text-amber-600 font-semibold mb-3">Шаг 1 · бесплатно · 30 минут</p>
+    <p class="text-signal font-semibold mb-3">Шаг 1 · бесплатно · 30 минут</p>
     <h1 class="text-4xl font-extrabold tracking-tight mb-5">Антикризисный аудит маркетинга</h1>
     <p class="text-lg text-slate-600">
       Когда продажи падают, а причина непонятна — первая ошибка в кризис это резать бюджет
@@ -41,9 +53,9 @@ const description =
   <section class="mx-auto max-w-3xl px-4 pb-10">
     <h2 class="text-2xl font-bold mb-4">Кому подходит</h2>
     <p class="text-slate-700">
-      <a href={`${base}services/smb/`} class="font-semibold text-amber-600 hover:text-amber-700">Малому и среднему бизнесу</a> —
+      <a href={`${base}services/smb/`} class="font-semibold text-signal hover:text-signal/80">Малому и среднему бизнесу</a> —
       когда продажи упали и непонятно почему, а штатного маркетолога нет.{' '}
-      <a href={`${base}services/b2b/`} class="font-semibold text-amber-600 hover:text-amber-700">B2B-компаниям</a> —
+      <a href={`${base}services/b2b/`} class="font-semibold text-signal hover:text-signal/80">B2B-компаниям</a> —
       когда нужно показать руководству объективную картину перед тем, как защищать или сокращать бюджет.
     </p>
   </section>
@@ -52,8 +64,8 @@ const description =
     <h2 class="text-2xl font-bold mb-4">Результат</h2>
     <p class="text-slate-700">
       Устный предварительный диагноз и рекомендация — двигаться дальше самостоятельно,
-      заказать <a href={`${base}services/strategy/`} class="font-semibold text-amber-600 hover:text-amber-700">антикризисную стратегию</a> (45 000 ₽)
-      или перейти на <a href={`${base}services/retainer/`} class="font-semibold text-amber-600 hover:text-amber-700">ведение маркетинга на подписке</a> (от 100 000 ₽/мес).
+      заказать <a href={`${base}services/strategy/`} class="font-semibold text-signal hover:text-signal/80">антикризисную стратегию</a> (45 000 ₽)
+      или перейти на <a href={`${base}services/retainer/`} class="font-semibold text-signal hover:text-signal/80">ведение маркетинга на подписке</a> (от 100 000 ₽/мес).
       Платный документ с полным разбором воронки и каналов — уже часть стратегии, а не бесплатного звонка.
     </p>
   </section>
