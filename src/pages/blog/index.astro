@@ -24,29 +24,28 @@ const segmentLabel: Record<string, string> = {
   <Breadcrumbs items={[{ label: 'Главная', href: base }, { label: 'Блог' }]} />
 
   <section class="mx-auto max-w-6xl px-4 pt-10 pb-10">
-    <h1 class="text-4xl font-extrabold tracking-tight mb-4">Блог</h1>
-    <p class="text-lg text-slate-600 max-w-2xl">
+    <h1 class="font-display text-4xl font-medium text-ink">Блог</h1>
+    <p class="mt-4 max-w-2xl text-lg text-ink-soft/80">
       Статьи о том, как бизнесу сохранять продажи и маркетинговый бюджет
       в нестабильной экономике — отдельно для малого/среднего бизнеса и для B2B.
     </p>
   </section>
 
-  <section class="mx-auto max-w-6xl px-4 pb-16 grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-    {allPosts.map((post) => (
-      <a
-        href={`${base}blog/${post.id}/`}
-        class="block rounded-2xl border border-slate-200 p-6 hover:border-signal hover:shadow-lg transition-all bg-white"
-      >
-        <span class="text-xs font-semibold uppercase tracking-wide text-signal">
-          {segmentLabel[post.data.segment]} · {post.data.category}
-        </span>
-        <h2 class="text-lg font-bold mt-2 mb-2">{post.data.title}</h2>
-        <p class="text-slate-600 text-sm mb-3">{post.data.description}</p>
-        <time class="text-xs text-slate-400" datetime={post.data.pubDate.toISOString()}>
-          {post.data.pubDate.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}
-        </time>
-      </a>
-    ))}
+  <section class="mx-auto max-w-6xl px-4 pb-16">
+    <div class="grid gap-x-10 gap-y-10 border-b border-line/60 sm:grid-cols-2 lg:grid-cols-3">
+      {allPosts.map((post) => (
+        <a href={`${base}blog/${post.id}/`} class="group block border-t border-line/60 pt-6">
+          <span class="font-mono text-xs uppercase tracking-wide text-signal">
+            {segmentLabel[post.data.segment]} · {post.data.category}
+          </span>
+          <h2 class="mt-2 font-display text-lg font-medium text-ink group-hover:text-signal">{post.data.title}</h2>
+          <p class="mt-3 text-sm text-ink-soft/80">{post.data.description}</p>
+          <time class="mt-4 block font-mono text-xs text-ink-soft/50" datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}
+          </time>
+        </a>
+      ))}
+    </div>
   </section>
 
   <CTASection

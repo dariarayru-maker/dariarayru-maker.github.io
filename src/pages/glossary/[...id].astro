@@ -47,25 +47,25 @@ const termSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(termSchema)} />
 
   <article class="mx-auto max-w-3xl px-4 pt-10 pb-16">
-    <span class="block text-xs font-semibold uppercase tracking-wide text-signal">
+    <span class="block font-mono text-xs uppercase tracking-wide text-signal">
       {term.data.category}
     </span>
-    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-3 mb-8">{term.data.title}</h1>
+    <h1 class="mt-3 font-display text-3xl font-medium text-ink sm:text-4xl">{term.data.title}</h1>
 
-    <div class="prose prose-slate max-w-none prose-headings:font-bold prose-a:text-signal">
+    <div class="prose prose-slate max-w-none mt-8 prose-headings:font-display prose-headings:font-medium prose-headings:text-ink prose-a:text-signal">
       <Content />
     </div>
   </article>
 
   {related.length > 0 && (
     <section class="mx-auto max-w-3xl px-4 pb-16">
-      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 border-t border-slate-200 pt-8 mb-4">
+      <h2 class="font-mono text-xs uppercase tracking-wide text-ink-soft/50 border-t border-line/60 pt-8 mb-4">
         Термины рядом · {term.data.category}
       </h2>
       <ul class="space-y-3">
         {related.map((t) => (
           <li>
-            <a href={`${base}glossary/${t.id}/`} class="font-medium text-slate-900 hover:text-signal">
+            <a href={`${base}glossary/${t.id}/`} class="font-display font-medium text-ink hover:text-signal">
               {t.data.title}
             </a>
           </li>

@@ -51,28 +51,28 @@ const articleSchema = {
   <script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
 
   <article class="mx-auto max-w-3xl px-4 pt-10 pb-16">
-    <span class="text-xs font-semibold uppercase tracking-wide text-signal">
+    <span class="font-mono text-xs uppercase tracking-wide text-signal">
       {segmentLabel[post.data.segment]} · {post.data.category}
     </span>
-    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mt-3 mb-4">{post.data.title}</h1>
-    <time class="text-sm text-slate-400" datetime={post.data.pubDate.toISOString()}>
+    <h1 class="mt-3 font-display text-3xl font-medium text-ink sm:text-4xl">{post.data.title}</h1>
+    <time class="mt-4 block font-mono text-xs text-ink-soft/50" datetime={post.data.pubDate.toISOString()}>
       {post.data.pubDate.toLocaleDateString('ru-RU', { day: 'numeric', month: 'long', year: 'numeric' })}
     </time>
 
-    <div class="prose prose-slate max-w-none mt-8 prose-headings:font-bold prose-a:text-signal">
+    <div class="prose prose-slate max-w-none mt-8 prose-headings:font-display prose-headings:font-medium prose-headings:text-ink prose-a:text-signal">
       <Content />
     </div>
   </article>
 
   {related.length > 0 && (
     <section class="mx-auto max-w-3xl px-4 pb-16">
-      <h2 class="text-sm font-semibold uppercase tracking-wide text-slate-500 border-t border-slate-200 pt-8 mb-4">
+      <h2 class="font-mono text-xs uppercase tracking-wide text-ink-soft/50 border-t border-line/60 pt-8 mb-4">
         Похожие статьи · {segmentLabel[post.data.segment]}
       </h2>
       <ul class="space-y-3">
         {related.map((p) => (
           <li>
-            <a href={`${base}blog/${p.id}/`} class="font-medium text-slate-900 hover:text-signal">
+            <a href={`${base}blog/${p.id}/`} class="font-display font-medium text-ink hover:text-signal">
               {p.data.title}
             </a>
           </li>
